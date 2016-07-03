@@ -16,6 +16,7 @@ public class LostInformation {
         System.out.println(Arrays.asList(map.getClass().getTypeParameters()));
         System.out.println(Arrays.asList(quark.getClass().getTypeParameters()));
         System.out.println(Arrays.asList(particle.getClass().getTypeParameters()));
+        System.out.println(Arrays.toString(args));
     }
 }
 class Forb{}
