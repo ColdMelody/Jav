@@ -8,13 +8,13 @@ package thinkinjava.generics;
 public class Holder<T> {
     private T value;
     public Holder(){}
-    private Holder(T value){
+    Holder(T value){
         this.value=value;
     }
-    private void set(T value){
+    void set(T value){
         this.value=value;
     }
-    private T get(){
+    T get(){
         return value;
     }
     private boolean euqals(Object o){
