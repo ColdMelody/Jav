@@ -29,7 +29,7 @@ public class UnboundedWindcards1 {
     public static void main(String[] args){
         assign1(new ArrayList());
         assign2(new ArrayList<>());
-        
+
         assign1(new ArrayList<String>());
         assign2(new ArrayList<String>());
         assign3(new ArrayList<String>());
