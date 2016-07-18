@@ -17,7 +17,7 @@ public class CollectionDataTest {
     }
 }
 class Goverment implements Generator<String>{
-    String[] foundation=("strange woman lying in ponds " +"distributing swords is no basis for a system of "+
+    private String[] foundation=("strange woman lying in ponds " +"distributing swords is no basis for a system of "+
                             "geverment").split(" ");
     private int index;
 
