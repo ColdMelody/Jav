@@ -3,6 +3,7 @@ package thinkinjava.collection;
 import thinkinjava.generics.Generator;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  * 适配器设计模式的一个实例
