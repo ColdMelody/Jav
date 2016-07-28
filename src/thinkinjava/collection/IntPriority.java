@@ -1,6 +1,5 @@
 package thinkinjava.collection;
 
-import java.util.Deque;
 import java.util.PriorityQueue;
 import java.util.Random;
 
