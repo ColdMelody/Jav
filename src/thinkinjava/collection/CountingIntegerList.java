@@ -10,7 +10,7 @@ import java.util.AbstractList;
 public class CountingIntegerList extends AbstractList<Integer>{
 
     private int size;
-    private CountingIntegerList(int size){
+    public CountingIntegerList(int size){
         this.size=size<0?0:size;
     }
     @Override

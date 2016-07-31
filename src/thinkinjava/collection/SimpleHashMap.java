@@ -7,6 +7,7 @@ import java.util.*;
 /**
  * Created by Bill on 2016/7/30.
  * Email androidBaoCP@163.com
+ * 一个简单的散列Map
  */
 public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
     private static final int SIZE = 997;
@@ -15,8 +16,10 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
 
     public V put(K key, V value) {
         V oldValue = null;
+        //计算桶位的分布
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null)
+            //利用LinkedList保存Entry
             buckets[index] = new LinkedList<>();
         LinkedList<MapEntry<K, V>> bucket = buckets[index];
         MapEntry<K, V> pair = new MapEntry<>(key, value);
@@ -40,6 +43,7 @@ public class SimpleHashMap<K, V> extends AbstractMap<K, V> {
         int index = Math.abs(key.hashCode()) % SIZE;
         if (buckets[index] == null) return null;
         for (MapEntry<K, V> iPair : buckets[index]) {
+            //具有相同桶位的key进行equals比较
             if (iPair.getKey().equals(key))
                 return iPair.getValue();
         }
