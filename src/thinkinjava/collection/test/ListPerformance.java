@@ -9,10 +9,10 @@ import java.util.*;
  * Email androidBaoCP@163.com
  */
 public class ListPerformance {
-    static Random random=new Random();
-    static int reps=1000;
-    static List<Test<List<Integer>>> tests=new ArrayList<>();
-    static List<Test<LinkedList<Integer>>> qTests=new ArrayList<>();
+    private static Random random=new Random();
+    private static int reps=1000;
+    private static List<Test<List<Integer>>> tests=new ArrayList<>();
+    private static List<Test<LinkedList<Integer>>> qTests=new ArrayList<>();
     static {
         tests.add(new Test<List<Integer>>("add") {
             @Override
