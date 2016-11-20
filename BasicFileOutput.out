@@ -1,0 +1,25 @@
+1: package thinkinjava.io;
+2: 
+3: import java.io.BufferedReader;
+4: import java.io.IOException;
+5: import java.io.PrintWriter;
+6: import java.io.StringReader;
+7: 
+8: /**
+9:  * Created by Bill on 2016/11/20.
+10:  * Email androidBaoCP@163.com
+11:  */
+12: public class BasicFileOutput {
+13:     public static void main(String[] args) throws IOException{
+14:         BufferedReader reader=new BufferedReader(new StringReader(BufferedInputFile.read("C:\\Users\\Administrator\\IdeaProjects\\Jva\\src\\thinkinjava\\io\\BasicFileOutput.java")));
+15:         String file = "BasicFileOutput.out";
+16:         PrintWriter writer=new PrintWriter(file);
+17:         int lineCount=1;
+18:         String s;
+19:         while ((s=reader.readLine())!=null){
+20:             writer.println(lineCount++ +": "+s);
+21:         }
+22:         writer.close();
+23:         System.out.println(BufferedInputFile.read(file));
+24:     }
+25: }
