@@ -21,7 +21,7 @@ public class Login implements Serializable {
     public String toString() {
         return "login info: \n    username: "+userName+"\n    password: "+password;
     }
-    public static void main(String...args) throws Exception{
+    public static void main() throws Exception{
         Login a=new Login("hulk","003");
         System.out.println("Login a = "+a);
         ObjectOutputStream o=new ObjectOutputStream(new FileOutputStream("E:/testio/login.out"));
