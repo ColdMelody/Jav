@@ -5,6 +5,7 @@ import io.reactivex.annotations.NonNull;
 
 import io.reactivex.disposables.Disposable;
 import io.reactivex.functions.Consumer;
+import io.reactivex.functions.Function;
 import io.reactivex.schedulers.Schedulers;
 import org.jetbrains.annotations.NotNull;
 
@@ -17,9 +18,10 @@ import java.util.concurrent.LinkedBlockingDeque;
  * Created by Bill on 2017/4/23.
  * Email androidBaoCP@163.com
  */
-public class RxJavaHelloWorld implements Executor{
+public class RxJavaHelloWorld implements Executor {
 
-    BlockingDeque<Runnable> tasks = new LinkedBlockingDeque<>();
+    private BlockingDeque<Runnable> tasks = new LinkedBlockingDeque<>();
+
     public static void main(String[] args) throws InterruptedException {
         Flowable.just("Hello world").subscribe(System.out::println);
         Observable.just("Hello Java!").subscribe(System.out::println);
@@ -35,12 +37,15 @@ public class RxJavaHelloWorld implements Executor{
         world.runOnMain();
         world.runLoop();
 
+        world.parseRx();
+
     }
-    private void runOnMain(){
+
+    private void runOnMain() {
         Observable.create(new ObservableOnSubscribe<Integer>() {
             @Override
             public void subscribe(@NonNull ObservableEmitter<Integer> observableEmitter) throws Exception {
-                for (int i =0;i<5;i++){
+                for (int i = 0; i < 5; i++) {
                     observableEmitter.onNext(i);
                 }
                 observableEmitter.onComplete();
@@ -73,10 +78,26 @@ public class RxJavaHelloWorld implements Executor{
     }
 
     private void runLoop() throws InterruptedException {
-        if (!Thread.interrupted()){
+        if (!Thread.interrupted()) {
             tasks.take().run();
         }
     }
+
+    // 这是一个map转换，输入的是int，输出的为String
+    private void parseRx() {
+        Observable.just(0x124213).map(new Function<Integer, String>() {
+            @Override
+            public String apply(@NonNull Integer integer) throws Exception {
+                return String.valueOf(integer);
+            }
+        }).subscribe(new Consumer<String>() {
+            @Override
+            public void accept(@NonNull String s) throws Exception {
+                System.out.println(s);
+            }
+        });
+    }
+
     @Override
     public void execute(@NotNull Runnable command) {
         tasks.add(command);

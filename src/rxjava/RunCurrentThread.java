@@ -14,6 +14,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 /**
  * Created by Bill on 2017/4/24.
  * Email androidBaoCP@163.com
+ * 一个简单的RxJava测试程序
  */
 public class RunCurrentThread implements Executor {
 
